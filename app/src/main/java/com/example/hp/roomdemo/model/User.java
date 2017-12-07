@@ -17,6 +17,7 @@ public class User {
 
     public String firstName;
     public String lastName;
+    public String email;
 
     @Ignore
     Bitmap picture;
@@ -28,9 +29,10 @@ public class User {
         this.lastName = lastName;
     }
 
-    public User(String firstName, String lastName) {
+    public User(String firstName, String lastName, String email) {
        this.firstName = firstName;
        this.lastName = lastName;
+       this.email = email;
     }
 
     public Bitmap getPicture() {
@@ -53,12 +55,21 @@ public class User {
         return lastName;
     }
 
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
     @Override
     public String toString() {
         return "User{" +
                 "id=" + id +
                 ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
+                ", email='" + email + '\'' +
                 ", picture=" + picture +
                 '}';
     }

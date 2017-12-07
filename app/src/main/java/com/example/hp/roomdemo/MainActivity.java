@@ -17,7 +17,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        UsersDatabase.getAppDatabase(this).myDao().insertUsers(new User("Kazi md.", "saidul"));
+        UsersDatabase.getAppDatabase(this).myDao().insertUsers(new User("Kazi md.", "saidul", "saidul@gmail.com"));
         User[] users = UsersDatabase.getAppDatabase(getApplicationContext()).myDao().loadAllUsers();
 
         for (User user:users) {
