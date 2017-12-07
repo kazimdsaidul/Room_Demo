@@ -17,7 +17,7 @@ import com.example.hp.roomdemo.model.User;
  * company Ltd
  * example@gmail.com
  */
-@Database(entities = {User.class}, version = 2)
+@Database(entities = {User.class}, version = 3)
 public abstract class UsersDatabase extends RoomDatabase {
 
 
@@ -33,6 +33,7 @@ public abstract class UsersDatabase extends RoomDatabase {
                             // Don't do this on a real app! See PersistenceBasicSample for an example.
                             .allowMainThreadQueries()
                             .addMigrations(MIGRATION_1_2)
+                            .addMigrations(MIGRATION_2_3)
                             .build();
         }
         return INSTANCE;
@@ -44,6 +45,14 @@ public abstract class UsersDatabase extends RoomDatabase {
         public void migrate(SupportSQLiteDatabase database) {
             database.execSQL("ALTER TABLE user "
                     + " ADD COLUMN email TEXT");
+
+        }
+    };
+
+    static final Migration MIGRATION_2_3 = new Migration(2, 3) {
+        @Override
+        public void migrate(SupportSQLiteDatabase database) {
+
 
         }
     };
